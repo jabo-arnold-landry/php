@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
             if ($row = mysqli_fetch_assoc($result)) {
-                // plain-text comparison as requested (no hashing)
                 if ($password === $row['password']) {
                     $_SESSION['user_id'] = $row['id'];
                     $_SESSION['username'] = $row['username'];

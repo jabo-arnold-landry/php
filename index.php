@@ -16,8 +16,13 @@ if (!isset($_SESSION['user_id'])) {
 <body>
   <header class="flex flex-wrap items-center justify-between px-5 py-4  bg-linear-to-r from-neutral-700 to-neutral-950 text-white relative">
     <h1 class="font-bold text-white text-2xl uppercase text-balance">match results</h1>
-    <section class="popup">
+    <section class="popup flex items-center gap-3">
       <button class="bg-indigo-900 text-white text-center px-4 py-1 rounded-sm capitalize hover:bg-indigo-700 cursor-pointer" onclick="showPopup()" id="popup-btn">&plus; add results</button>
+
+      <!-- Logout form (POST) -->
+      <form action="logout.php" method="post" class="inline">
+        <button type="submit" class="bg-red-700 text-white px-3 py-1 rounded-sm hover:bg-red-600">Logout</button>
+      </form>
     </section>
   </header>
     <div class="bg-black opacity-[0.5] fixed inset-0 z-10" onclick="hidePopup()" id="overlay" hidden></div>
@@ -99,7 +104,7 @@ if (!isset($_SESSION['user_id'])) {
   <script src="./javascript/main.js"></script>
 
   <script>
-    // Show update modal and fill values
+    
     function showUpdatePopup() {
       document.getElementById('overlay').hidden = false;
       document.getElementById('update-form-container').hidden = false;
@@ -121,10 +126,9 @@ if (!isset($_SESSION['user_id'])) {
       }
     });
 
-    // Close update modal when clicking the overlay
+   
     document.getElementById('overlay').addEventListener('click', function(){
       hideUpdatePopup();
-      // keep existing add-popup handlers (main.js) in place
     });
   </script>
 
